@@ -1,0 +1,187 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "forge",
+            "parameters": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "description",
+                    "code",
+                    "interval_in_second"
+                ],
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "runnable code of the strategy, without the codeblock, i.e. the '```jsx' part."
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "summary name of the strategy."
+                    },
+                    "visible": {
+                        "type": "boolean",
+                        "description": "whether the strategy is visible to other users, default false."
+                    },
+                    "config_json": {
+                        "type": "string",
+                        "description": "any other config of the strategy, default empty."
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "a playful and vivid description for the strategy, within 30 words."
+                    },
+                    "twitter_handle": {
+                        "type": "string",
+                        "description": "twitter handle of the user, default empty."
+                    },
+                    "interval_in_second": {
+                        "type": "number",
+                        "description": "a reasonable cron interval for the strategy, in seconds."
+                    }
+                }
+            },
+            "description": "Deploy the javascript code to a cronjob system to run periodically."
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "search_api_docs",
+            "parameters": {
+                "type": "object",
+                "required": [
+                    "api_methods"
+                ],
+                "properties": {
+                    "api_methods": {
+                        "type": "array",
+                        "items": {
+                            "enum": [
+                                "SyncFetch",
+                                "GetTimeline",
+                                "ChatCompletion",
+                                "Embed",
+                                "Translate",
+                                "GetTransactions",
+                                "GetProject",
+                                "GetSmartSignal",
+                                "GetXFollowers",
+                                "GetXFollowings",
+                                "GetXPostsByUsername",
+                                "GetXUserByName",
+                                "GetMarketData",
+                                "GetNewlyCreatedMemeTokens",
+                                "GetAgentMessages",
+                                "GetKolsByPriority",
+                                "GetWallets",
+                                "SearchTweets",
+                                "QueryKnowledgeBase"
+                            ],
+                            "type": "string"
+                        },
+                        "description": "List of API methods to get documentation about"
+                    }
+                }
+            },
+            "description": "Search for specificAPI documentation"
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "search_schema_docs",
+            "parameters": {
+                "type": "object",
+                "required": [
+                    "api_schemas"
+                ],
+                "properties": {
+                    "api_schemas": {
+                        "type": "array",
+                        "items": {
+                            "enum": [
+                                "Factor",
+                                "TimelineEvent",
+                                "Project",
+                                "SmartSignal",
+                                "SmartSignalKind",
+                                "TwitterUser",
+                                "Bar",
+                                "TsData",
+                                "LiquidationData",
+                                "VolumeData",
+                                "FundingRateWithIntervalData",
+                                "Message",
+                                "MultiFactor",
+                                "MessageCategory",
+                                "XInteraction",
+                                "XPostMentionedProject",
+                                "XPost",
+                                "SimilarTokens",
+                                "Tx",
+                                "MemeToken",
+                                "MemeToken_Creator",
+                                "SocialMedia",
+                                "CheckMemeTokenCreatorResponse",
+                                "FetchResponse",
+                                "Wallet",
+                                "WalletV2",
+                                "WalletLabel",
+                                "WalletLabelIdentity",
+                                "WalletLabelBehavior",
+                                "WalletLabelCustom",
+                                "Document"
+                            ],
+                            "type": "string"
+                        },
+                        "description": "List of object schema to get documentation about"
+                    }
+                }
+            },
+            "description": "Search for specific object schema."
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "indicators_code_search",
+            "parameters": {
+                "type": "object",
+                "required": [
+                    "indicators"
+                ],
+                "properties": {
+                    "indicators": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of indicator names to search for."
+                    }
+                }
+            },
+            "description": "Search for example codes for given indicators."
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "execute_code",
+            "parameters": {
+                "type": "object",
+                "required": [
+                    "code"
+                ],
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "copy the code from the latest <CODEBLOCK> to execute"
+                    }
+                }
+            },
+            "description": "Execute the latest <CODEBLOCK> and acquire the result"
+        }
+    }
+]
